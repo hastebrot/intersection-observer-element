@@ -1,7 +1,7 @@
 {
-  "name": "intersection-observer-element",
+  "name": "intersection-observer",
   "description": "Reflects contained elements visibility in attributes",
-  "main": "intersection-observer-element.html",
+  "main": "index.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0"
   },

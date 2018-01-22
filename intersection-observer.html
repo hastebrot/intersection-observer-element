@@ -1,0 +1,94 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="intersection-observer">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+
+    <div id="slottedData">
+      <slot></slot>
+    </div>
+  </template>
+
+  <script>
+    (function () {
+
+      /**
+       * `intersection-observer`
+       * Reflects contained elements visibility in attributes
+       *
+       * @customElement
+       * @polymer
+       * @demo demo/index.html
+       */
+      class IntersectionObserver extends Polymer.Element {
+
+        static get is() {
+          return "intersection-observer";
+        }
+
+        static get properties() {
+          return {
+            thresholds: {
+              type: Array,
+              value: () => [0.0, 0.25, 0.5, 0.75, 1.0]
+            },
+
+            visible: {
+              type: Boolean,
+              value: false,
+              readOnly: true,
+              notify: true,
+              reflectToAttribute: true
+            },
+
+            ratio: {
+              type: Number,
+              readOnly: true,
+              reflectToAttribute: true
+            },
+
+            visibleLimit: {
+              type: Number,
+              value: 0.5,
+              reflectToAttribute: true
+            }
+          };
+        }
+
+        connectedCallback() {
+          super.connectedCallback();
+
+          const IntersectionObserver = window.IntersectionObserver
+
+          this._observer = new IntersectionObserver(this._handleIntersection.bind(this), {
+            root: document.rootElement,
+            rootMargin: "0px",
+            threshold: this.thresholds
+          });
+
+          this._observer.observe(this.$.slottedData);
+        }
+
+        _handleIntersection(entries) {
+          if (!document.hidden) {
+            for (const entry of entries) {
+              this._setRatio(Number(entry.intersectionRatio).toFixed(2));
+              this._setVisible(this.ratio > this.visibleLimit);
+            }
+          }
+          else {
+            this._setVisible(false);
+          }
+        }
+
+      }
+
+      window.customElements.define(IntersectionObserver.is, IntersectionObserver);
+
+    }())
+  </script>
+</dom-module>

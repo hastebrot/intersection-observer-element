@@ -2,72 +2,80 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-	<title>intersection-observer-element demo</title>
+  <title>intersection-observer demo</title>
 
-	<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
 
-	<link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-	<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-	<link rel="import" href="../intersection-observer-element.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../intersection-observer.html">
 
-	<custom-style>
-		<style is="custom-style" include="demo-pages-shared-styles">
-			.container {
-				max-height: 200px;
-				overflow-y: scroll;
-				border: 1px solid black;
-			}
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .container {
+        max-height: 250px;
+        overflow-y: scroll;
+        border: 1px solid black;
+      }
 
-			.container > div {
-				min-height: 350px;
-				display: flex;
-				flex-direction: column;
-			}
+      .container > div {
+        min-height: 350px;
+        display: flex;
+        flex-direction: column;
+      }
 
-			intersection-observer-element {
-				transition: background-color 1s;
+      intersection-observer {
+        padding: 20px 0;
+        margin: 20px 0;
+        text-align: center;
+        transition: background-color 1s;
+      }
 
-				min-height: 50px;
-				max-height: 50px;
-
-				text-align: center;
-
-				margin: 25px;
-			}
-
-			intersection-observer-element[visible] {
-				background-color: lightblue;
-			}
-		</style>
-	</custom-style>
+      intersection-observer[visible] {
+        background-color: lightblue;
+      }
+    </style>
+  </custom-style>
 </head>
 
 <body>
-	<div class="vertical-section-container centered">
-		<h3>intersection-observer-element demo</h3>
-		<demo-snippet>
-			<template>
-				<div class="container">
-					<div>
-						<intersection-observer-element>
-							<span>1</span>
-						</intersection-observer-element>
+  <div class="vertical-section-container centered">
+    <h3>intersection-observer demo</h3>
 
-						<intersection-observer-element>
-							<span>2</span>
-						</intersection-observer-element>
+    <demo-snippet>
+      <template>
+        <div class="container">
+          <div>
 
-						<intersection-observer-element>
-							<span>3</span>
-						</intersection-observer-element>
-					</div>
-				</div>
-			</template>
-		</demo-snippet>
-	</div>
+            <intersection-observer>
+              <span>1</span>
+            </intersection-observer>
+
+            <intersection-observer>
+              <span>2</span>
+            </intersection-observer>
+
+            <intersection-observer>
+              <span>3</span>
+            </intersection-observer>
+
+            <intersection-observer>
+              <span>4</span>
+            </intersection-observer>
+
+            <intersection-observer>
+              <span>5</span>
+            </intersection-observer>
+
+          </div>
+        </div>
+      </template>
+    </demo-snippet>
+
+  </div>
 </body>
 
 </html>

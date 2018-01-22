@@ -1,18 +1,18 @@
-# \<intersection-observer-element\>
+# \<intersection-observer\>
 
 Set's `visible` to true when the viewport crosses the set threshold of the element.
 
 ```
-<intersection-observer-element visible="{{visible}}">
-    <div>  
+<intersection-observer visible="[[visible]]">
+    <div>
         ...
     </div>
-</intersection-observer-element>
+</intersection-observer>
 ```
 ## Install
 
 ```
-bower install --save intersection-observer-element
+bower install --save intersection-observer
 ```
 
 ## Options
@@ -34,7 +34,7 @@ The percentage whereby the element swaps between visible or not.
 This element uses the Intersection Observer Api, which whilst most modern browsers currently support, it is missing from iOS Safari. More detailed information can be found at [CanIUse](https://caniuse.com/#search=intersection).
 
 If you wish to support multiple browsers it's recommended you also use one of the Polyfills from [here](https://github.com/w3c/IntersectionObserver/tree/gh-pages/polyfill).
- 
+
 ## Developing
 
 ### Install the Polymer-CLI
